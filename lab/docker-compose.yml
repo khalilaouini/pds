@@ -1,0 +1,26 @@
+services:
+  good_service:
+    build:
+      context: ./services/good_service
+    container_name: good_service
+    restart: unless-stopped
+
+  bug_service:
+    build:
+      context: ./services/bug_service
+    container_name: bug_service
+    # Intentionally missing REQUIRED_ENV to force crash-loop
+    restart: always
+
+  suspicious_service:
+    build:
+      context: ./services/suspicious_service
+    container_name: suspicious_service
+    restart: unless-stopped
+
+  noisy_service:
+    build:
+      context: ./services/noisy_service
+    container_name: noisy_service
+    restart: unless-stopped
+
